@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Levi Alves Junior">
+    <meta name="description" content="tcc chatbot 2019">
+    <meta name="robots" content="index, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ChatBot</title>
+    <link rel="shortcut icon" type="imagem/png" href="/static/icon/robo_1.png">
+    <link rel="stylesheet" type="text/css" href="static/style.css">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  
+  <body>  
+    <div class="banner-bot">
+      <div class="bot">
+        <img src="/static/icon/robo.png" class="img-responsivo img-50 circulo">
+      <h1>ChatBot</h1>
+      </div>
+    </div>    
+    <div>      
+      <div id="chatbox">
+      </div>            
+      <div id="userInput">        
+        <input id="textInput" type="text" name="msg" placeholder="Mensagem">
+        <input id="buttonInput" type="submit" value="Enviar">    
+      </div>      
+
+      <script>
+        function getBotResponse() {
+          var rawText = $("#textInput").val();
+          var userHtml = '<div class="userText"><span>' + rawText + '</span></div>';
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          $.get("/get", { msg: rawText }).done(function(data) {
+            var botHtml = '<div class="botText"><span>' + data + '</span></div>';
+            $("#chatbox").append(botHtml);
+            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          });
+        }
+        $("#textInput").keypress(function(e) {
+            if(e.which == 13) {
+                getBotResponse();
+            }
+        });
+        $("#buttonInput").click(function() {
+          getBotResponse();
+        })
+      </script>
+
+    </div>
+  </body>
+</html>

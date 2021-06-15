@@ -1,0 +1,116 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+body {
+    font-family: arial;
+    background-color: var(--corFundo);
+}
+
+:root{
+    --corFundo: #363636;/*#363636*/
+    --corTitulo: #fff;
+    --corMensagem: #fff;
+    --corBorderInput: #8B0000;
+    --corInputText: #fff;
+    --corUserText: #808080;
+    --corBotText: #000000;
+}
+
+.circulo{
+    border-radius: 50%;
+    border: solid 3px #fff;
+}
+
+.img-responsivo{
+    max-width: 100%;
+    height: auto;
+}
+
+.img-50{
+    width: 100px;
+}
+
+.banner-bot{
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    text-align: center;
+    background-color: black;    
+}
+.banner-bot .bot{
+    margin: auto;
+}
+
+h1 {
+    color: var(--corTitulo);    
+}
+
+#chatbox {
+    margin: auto;
+    width: 40%;
+    margin-top: 60px;
+}
+@media only screen and (max-width: 800px){
+    #chatbox{
+        width: 90%;
+    }
+}
+
+#userInput {
+    margin: auto;
+    width: 40%;
+    margin-top: 60px;
+    display: flex; 
+    justify-content: space-between;
+}
+@media only screen and (max-width: 800px){
+    #userInput{
+        width: 90%;
+    }
+}
+
+#textInput {
+    width: 87%;
+    height: 30px;
+    border: none;
+    border-bottom: 3px solid var(--corBorderInput);
+    font-size: 17px;
+    background-color: var(--corFundo);
+    color: var(--corInputText);
+}
+
+#buttonInput {
+    padding: 3px;
+    font-size: 17px;
+    height: 30px;
+}
+
+.userText {
+    width: 90%;
+    color: var(--corMensagem);
+    font-size: 17px;
+    line-height: 30px;
+    background-color: var(--corUserText);    
+    margin-bottom: 10px;
+    border-radius: 20px;
+    padding: 10px;
+    float: right;
+}
+
+.botText {
+    width: 90%;
+    color: var(--corMensagem);
+    font-size: 17px;
+    line-height: 30px;
+    background-color: var(--corBotText);    
+    margin-bottom: 10px;
+    border-radius: 20px;
+    padding: 10px;
+    float: left;
+}
